@@ -1,5 +1,9 @@
 import { z } from 'zod';
 
+export const personInputSchema = z.object({
+  name: z.string().min(2)
+});
+
 export const personSchema = z.object({
   name: z.string(),
   gender: z.string(),
@@ -39,10 +43,6 @@ export const peopleSchema = z.array(
 ));
 
 export type Person = z.infer<typeof personSchema>;
-
-export const personInputSchema = z.object({
-  name: z.string().min(2)
-});
 
 export const personSearchResultsSchema = z.object({
   count: z.number(),

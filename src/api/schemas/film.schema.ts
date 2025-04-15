@@ -1,5 +1,9 @@
 import { z } from 'zod';
 
+export const filmInputSchema = z.object({
+  key: z.string()
+});
+
 export const filmSchema = z.object({
   title: z.string(),
   characters: z.array(z.string()),
@@ -15,7 +19,3 @@ export const filmSearchResultsSchema = z.object({
 });
 
 export const filmCharacterResultsSchema = z.array(filmSchema);
-
-export const filmInputSchema = z.object({
-  key: z.string()
-});
