@@ -5,7 +5,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx tsc",
-    "genkit:dev": "npx genkit start -- npx tsx --watch src/index.ts"
+    "genkit:dev": "npx genkit start -- npx tsx --watch src/index.ts",
+    "format": "prettier --write \"./**/*.{ts,js}\""
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,7 @@
   "description": "",
   "devDependencies": {
     "genkit-cli": "1.6.1",
+    "prettier": "3.5.3",
     "tsx": "4.19.3",
     "typescript": "^5.8.3"
   },
@@ -20,6 +22,16 @@
     "@genkit-ai/googleai": "1.6.0",
     "dotenv": "16.5.0",
     "genkit": "1.6.0",
-    "zod": "3.24.2"
+    "lint-staged": "15.5.1"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true,
+    "printWidth": 120
+  },
+  "lint-staged": {
+    "*.ts": ["prettier --write"]
   }
 }

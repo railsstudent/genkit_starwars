@@ -1,34 +1,32 @@
-import { z } from 'zod';
+import { z } from 'genkit';
 
 export const personInputSchema = z.object({
-  name: z.string().min(2)
+  name: z.string().min(2, 'Name must be at least 2 characters long'),
 });
 
-export const personSchema = z.object({
-  name: z.string(),
-  gender: z.string(),
-  hair_color: z.string(),
-  height: z
-    .string()
-    .transform((value) => { 
+export const personSchema = z
+  .object({
+    name: z.string(),
+    gender: z.string(),
+    hair_color: z.string(),
+    height: z.string().transform((value) => {
       if (!value) {
         return 160;
       }
       const parsed = parseInt(value);
       return isNaN(parsed) ? 160 : parsed;
     }),
-  mass: z
-    .string()
-    .transform((value) => { 
+    mass: z.string().transform((value) => {
       if (!value) {
         return 65;
       }
       const parsed = parseInt(value);
       return isNaN(parsed) ? 65 : parsed;
     }),
-  skin_color: z.string(),
-  eye_color: z.string(),
-}).describe('The physical attributes of a Star Wars character.');
+    skin_color: z.string(),
+    eye_color: z.string(),
+  })
+  .describe('The physical attributes of a Star Wars character.');
 
 export const peopleSchema = z.array(
   z.object({
@@ -39,8 +37,8 @@ export const peopleSchema = z.array(
     mass: z.number(),
     skin_color: z.string(),
     eye_color: z.string(),
-  }
-));
+  }),
+);
 
 export type Person = z.infer<typeof personSchema>;
 

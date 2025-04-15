@@ -1,7 +1,7 @@
-import { z } from 'zod';
+import { z } from 'genkit';
 
 export const filmInputSchema = z.object({
-  key: z.string()
+  title: z.string().min(2, 'Title must be at least 2 characters long'),
 });
 
 export const filmSchema = z.object({
