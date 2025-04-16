@@ -1,11 +1,11 @@
-import { filmCharactersPrompt, peoplePrompt } from './ai';
+import { filmCharactersFlow, peopleFlow } from './ai';
 // import { peopleFlow, filmCharactersFlow } from './ai/flows';
 // import { searchCharactersInFilm } from './api';
 
 (async () => {
-  const { output } = await filmCharactersPrompt({ title: 'awa' });
+  const output = await filmCharactersFlow({ title: 'clone' });
   console.log('output', output);
 
-  const { output: output2 } = await peoplePrompt({ name: 'bo' });
+  const output2 = await peopleFlow({ name: 'te' });
   console.log('output2', output2);
 })();

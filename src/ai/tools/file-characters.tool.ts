@@ -12,7 +12,7 @@ export const filmCharactersTool = ai.defineTool(
     outputSchema: filmCharacterResultsSchema,
   },
   async ({ title }) => {
-    console.log('filmCharactersTool ->', title);
+    console.log(`filmCharactersTool called with ${title}`);
     return searchCharactersInFilm(title);
   },
 );

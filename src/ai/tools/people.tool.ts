@@ -8,5 +8,8 @@ export const peopleTool = ai.defineTool(
     inputSchema: personInputSchema,
     outputSchema: peopleSchema,
   },
-  async ({ name }) => searchPeople(name),
+  async ({ name }) => {
+    console.log(`peopleTool called with name: ${name}`);
+    return searchPeople(name)
+  },
 );

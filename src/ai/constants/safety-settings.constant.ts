@@ -22,7 +22,7 @@ const safetySettings = [
 ];
 
 export const promptConfig = {
-  maxTokens: 1024,
+  maxOutputTokens: 1024,
   temperature: 0.2,
   topP: 1,
   topK: 10,

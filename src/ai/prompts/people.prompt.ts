@@ -1,3 +1,4 @@
+import { gemini20Flash } from '@genkit-ai/googleai';
 import { peopleSchema, personInputSchema } from '../../api';
 import { ai } from '../config';
 import { promptConfig } from '../constants/safety-settings.constant';
@@ -15,6 +16,7 @@ export const peoplePrompt = ai.definePrompt(
       schema: peopleSchema,
     },
     config: promptConfig,
+    model: 'googleai/gemini-2.0-flash',
   },
   `
 Use the tools to perform a like search on "{{name}}" to find the characters.
