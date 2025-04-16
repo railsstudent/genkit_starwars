@@ -11,12 +11,6 @@ export const peopleFlow = ai.defineFlow(
       streamSchema: peopleSchema,
     },
     async (input, { sendChunk }) => {
-      // const { output } = await peoplePrompt(input);
-    
-      // if (output == null) {
-      //   throw new Error("Response doesn't satisfy schema.");
-      // }
-      // return output;
       const response = await ai.generateStream({
         system: `
 You are a Star Wars expert who can search Star Wars people. 
