@@ -1,5 +1,6 @@
 import { filmCharacterResultsSchema, filmInputSchema } from '../../api';
 import { ai } from '../config';
+import { GEMINI_20_FLASH } from '../constants/model.constant';
 import { promptConfig } from '../constants/safety-settings.constant';
 import { filmCharactersTool } from './../tools/file-characters.tool';
 
@@ -24,7 +25,7 @@ If you do not know the answer, return an empty array and do not make up any char
             schema: filmCharacterResultsSchema,
         },
         config: promptConfig,
-        model: 'googleai/gemini-2.0-flash',
+        model: GEMINI_20_FLASH,
       })
 
       for await (const chunk of response.stream) {

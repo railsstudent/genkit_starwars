@@ -1,0 +1,1 @@
+export const GEMINI_20_FLASH = 'googleai/gemini-2.0-flash';
