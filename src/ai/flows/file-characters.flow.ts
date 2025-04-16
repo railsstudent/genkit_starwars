@@ -1,7 +1,7 @@
-import { filmCharactersTool } from './../tools/file-characters.tool';
 import { filmCharacterResultsSchema, filmInputSchema } from '../../api';
 import { ai } from '../config';
 import { promptConfig } from '../constants/safety-settings.constant';
+import { filmCharactersTool } from './../tools/file-characters.tool';
 
 export const filmCharactersFlow = ai.defineFlow(
     {
