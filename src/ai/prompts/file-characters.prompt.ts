@@ -18,7 +18,7 @@ export const filmCharactersPrompt = ai.definePrompt(
     model: 'googleai/gemini-2.0-flash',
   },
   `
-Always use the tools to perform a like search on "{{title}}" to find the film titles.
+Use the tools to perform a like search on film titles to find "{{title}}".
 Then, list the characters in these Star Wars films. If there is no film found, return an empty array.
 If you do not know the answer, return an empty array and do not make up any characters or films.
 Please stop when a non-empty array is found.    
