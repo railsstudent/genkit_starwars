@@ -10,6 +10,6 @@ export const peopleTool = ai.defineTool(
   },
   async ({ name }) => {
     console.log(`peopleTool called with name: ${name}`);
-    return searchPeople(name)
+    return searchPeople(name);
   },
 );
