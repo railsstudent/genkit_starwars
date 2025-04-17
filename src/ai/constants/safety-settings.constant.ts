@@ -29,9 +29,3 @@ export const safetySettings = [
     | 'HARM_CATEGORY_CIVIC_INTEGRITY';
   threshold: 'BLOCK_LOW_AND_ABOVE' | 'BLOCK_MEDIUM_AND_ABOVE' | 'BLOCK_ONLY_HIGH' | 'BLOCK_NONE';
 }[];
-
-
-export const imageResponseConfig = {
-  ...responseConfig,
-  responseModalities: ['IMAGE'] as ("IMAGE" | "AUDIO" | "TEXT")[]
-}
