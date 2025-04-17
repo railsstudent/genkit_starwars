@@ -1,7 +1,7 @@
 import { gemini20Flash } from '@genkit-ai/googleai';
 import { filmCharacterResultsSchema, filmInputSchema } from '../../api';
 import { ai } from '../config';
-import { promptConfig } from '../constants/safety-settings.constant';
+import { responseConfig } from '../constants/response-config.constant';
 import { filmCharactersTool } from './../tools/file-characters.tool';
 
 export const filmCharactersFlow = ai.defineFlow(
@@ -24,7 +24,7 @@ If you do not know the answer, return an empty array and do not make up any char
         format: 'json',
         schema: filmCharacterResultsSchema,
       },
-      config: promptConfig,
+      config: responseConfig,
       model: gemini20Flash,
     });
 

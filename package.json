@@ -14,7 +14,9 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/node": "22.14.1",
     "genkit-cli": "1.6.1",
+    "lint-staged": "15.5.1",
     "prettier": "3.5.3",
     "tsx": "4.19.3",
     "typescript": "^5.8.3"
@@ -22,8 +24,7 @@
   "dependencies": {
     "@genkit-ai/googleai": "1.6.0",
     "dotenv": "16.5.0",
-    "genkit": "1.6.0",
-    "lint-staged": "15.5.1"
+    "genkit": "1.6.0"
   },
   "prettier": {
     "trailingComma": "all",
@@ -33,6 +34,8 @@
     "printWidth": 120
   },
   "lint-staged": {
-    "*.ts": ["prettier --write"]
+    "*.ts": [
+      "prettier --write"
+    ]
   }
 }
