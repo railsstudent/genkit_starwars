@@ -51,8 +51,11 @@ export const posterFlow = ai.defineFlow(
     const personSkinColor = firstPerson.skin_color;
     const personEyeColor = firstPerson.eye_color;
 
-    const imagePrompt = `Generate an image of ${personName} from Star Wars who is a ${personGender}. 
-The eye color is ${personEyeColor}, the hair color is ${personHairColor}, and the skin color is ${personSkinColor}.`;
+    const imagePrompt = `Generate a poster of ${personName} from Star Wars who is a ${personGender}. 
+  The eye color is ${personEyeColor}, the hair color is ${personHairColor}, and the skin color is ${personSkinColor}.
+  Include ${personName} as the title of the poster and above the character.`;
+
+    console.log(imagePrompt);
 
     const response = await geminiAI.models.generateImages({
       model: 'imagen-3.0-generate-002',
