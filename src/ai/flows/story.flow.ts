@@ -1,4 +1,3 @@
-import { gemini20Flash } from '@genkit-ai/googleai';
 import { z } from 'genkit';
 import { personInputSchema } from '../../api';
 import { ai } from '../config';
@@ -31,7 +30,6 @@ Please keep the story to maximum 1000 characters.`,
         schema: z.string(),
       },
       config: responseConfig,
-      model: gemini20Flash,
     });
 
     for await (const chunk of response.stream) {

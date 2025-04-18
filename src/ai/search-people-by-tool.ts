@@ -1,4 +1,3 @@
-import { gemini20Flash } from '@genkit-ai/googleai';
 import { peopleSchema, Person } from '../api';
 import { ai } from './config';
 import { responseConfig } from './constants/response-config.constant';
@@ -19,7 +18,6 @@ export async function searchPeopleByTool(name: string): Promise<Person[]> {
       schema: peopleSchema,
     },
     config: responseConfig,
-    model: gemini20Flash,
   });
 
   if (output == null) {
