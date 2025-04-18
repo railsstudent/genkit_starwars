@@ -1,7 +1,7 @@
 import { gemini20Flash, googleAI } from '@genkit-ai/googleai';
 import { GoogleGenAI } from '@google/genai';
 import 'dotenv/config';
-import { genkit } from 'genkit';
+import { genkit } from 'genkit/beta';
 
 export const ai = genkit({
   plugins: [

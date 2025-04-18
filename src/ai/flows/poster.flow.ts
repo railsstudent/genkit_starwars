@@ -4,6 +4,7 @@ import * as fs from "node:fs";
 import { personInputSchema } from '../../api';
 import { ai, geminiAI } from '../config';
 import { searchPeopleByTool } from '../search-people-by-tool';
+import { logger } from 'genkit/logging';
 
 function writeImages(generatedImages: GeneratedImage[]) {
   let numImages = 0;
@@ -45,17 +46,11 @@ export const posterFlow = ai.defineFlow(
     }
 
     const firstPerson = output[0];
-    const personName = firstPerson.name;
-    const personGender = firstPerson.gender;
-    const personHairColor = firstPerson.hair_color;
-    const personSkinColor = firstPerson.skin_color;
-    const personEyeColor = firstPerson.eye_color;
+    const imagePrompt = `Generate a poster of ${firstPerson.name} from Star Wars who is a ${firstPerson.gender}. 
+  The eye color is ${firstPerson.eye_color}, the hair color is ${firstPerson.hair_color}, and the skin color is ${firstPerson.skin_color}.
+  Include ${firstPerson.name} as the title of the poster and above the character.`;
 
-    const imagePrompt = `Generate a poster of ${personName} from Star Wars who is a ${personGender}. 
-  The eye color is ${personEyeColor}, the hair color is ${personHairColor}, and the skin color is ${personSkinColor}.
-  Include ${personName} as the title of the poster and above the character.`;
-
-    console.log(imagePrompt);
+    logger.info(imagePrompt);
 
     const response = await geminiAI.models.generateImages({
       model: 'imagen-3.0-generate-002',
