@@ -2,7 +2,7 @@ import { z } from 'genkit';
 import { personInputSchema } from '../../api';
 import { ai } from '../config';
 import { responseConfig } from '../constants/response-config.constant';
-import { searchPeopleByTool } from '../search-people-by-tool';
+import { searchPeopleByTool } from '../utils/search-people-by-tool';
 
 export const storyFlow = ai.defineFlow(
   {

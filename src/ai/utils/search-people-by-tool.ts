@@ -1,7 +1,7 @@
-import { peopleSchema, Person } from '../api';
-import { ai } from './config';
-import { responseConfig } from './constants/response-config.constant';
-import { peopleTool } from './tools/people.tool';
+import { peopleSchema, Person } from '../../api';
+import { ai } from '../config';
+import { responseConfig } from '../constants/response-config.constant';
+import { peopleTool } from '../tools/people.tool';
 
 export async function searchPeopleByTool(name: string): Promise<Person[]> {
   const { output } = await ai.generate({
