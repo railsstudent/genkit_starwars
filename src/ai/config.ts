@@ -1,4 +1,4 @@
-import { gemini20Flash, googleAI } from '@genkit-ai/googleai';
+import { gemini25ProExp0325, googleAI } from '@genkit-ai/googleai';
 import { GoogleGenAI } from '@google/genai';
 import 'dotenv/config';
 import { genkit } from 'genkit';
@@ -9,7 +9,7 @@ export const ai = genkit({
       apiKey: process.env.GOOGLE_GENAI_API_KEY,
     }),
   ],
-  model: gemini20Flash,
+  model: gemini25ProExp0325,
 });
 
 export const geminiAI = new GoogleGenAI({

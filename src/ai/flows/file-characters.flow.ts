@@ -1,4 +1,3 @@
-import { gemini20Flash } from '@genkit-ai/googleai';
 import { filmCharacterResultsSchema, filmInputSchema } from '../../api';
 import { ai } from '../config';
 import { responseConfig } from '../constants/response-config.constant';
@@ -25,7 +24,6 @@ If you do not know the answer, return an empty array and do not make up any char
         schema: filmCharacterResultsSchema,
       },
       config: responseConfig,
-      model: gemini20Flash,
     });
 
     for await (const chunk of response.stream) {
