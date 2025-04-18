@@ -8,7 +8,9 @@ import { searchPeopleByTool } from '../search-people-by-tool';
 function writeImages(generatedImages: GeneratedImage[]) {
   let numImages = 0;
   const filenames: string[] = []; 
-  fs.rmSync('people', { recursive: true });
+  if (fs.existsSync('people')) {
+    fs.rmSync('people', { recursive: true });
+  }
   fs.mkdirSync('people', { recursive: true });
   let idx = 1;
   for (const generatedImage of generatedImages) {

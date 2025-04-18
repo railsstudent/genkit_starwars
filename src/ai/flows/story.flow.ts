@@ -23,7 +23,7 @@ export const storyFlow = ai.defineFlow(
     const response = await ai.generateStream({
       system: `
 You are a professional Star Wars writer who can write Star Wars fictions based on the characters. 
-Please keep the story to maximum 1000 characters.`,
+Please keep the story to maximum 500 characters.`,
       prompt: `Write a Star Wars fiction about ${names}.`,
       output: {
         format: 'text',
