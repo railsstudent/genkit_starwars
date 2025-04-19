@@ -1,5 +1,5 @@
 import { z } from 'genkit';
-import { personInputSchema } from '../../api';
+import { personInputSchema, searchPeople } from '../../api';
 import { ai } from '../config';
 import { responseConfig } from '../constants/response-config.constant';
 import { searchPeopleByTool } from '../utils/search-people-by-tool';
@@ -11,8 +11,13 @@ export const storyFlow = ai.defineFlow(
     outputSchema: z.string(),
     streamSchema: z.string(),
   },
-  async ({ name }, { sendChunk }) => {
-    const output = await searchPeopleByTool(name);
+  async ({ name }, { sendChunk, context }) => {
+    if (context?.auth?.name !== 'Rebellion') {
+      throw new Error('You are not authorized to use this tool.');
+    }
+
+    // const output = await searchPeopleByTool(name);
+    const output = await searchPeople(name);
 
     if (output.length === 0) {
       return '';

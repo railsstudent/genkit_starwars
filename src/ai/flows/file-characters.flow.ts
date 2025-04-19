@@ -10,7 +10,11 @@ export const filmCharactersFlow = ai.defineFlow(
     outputSchema: filmCharacterResultsSchema,
     streamSchema: filmCharacterResultsSchema,
   },
-  async (input, { sendChunk }) => {
+  async (input, { sendChunk, context }) => {
+    if (context?.auth?.name !== 'Rebellion') {
+      throw new Error('You are not authorized to use this tool.');
+    }
+
     const response = await ai.generateStream({
       system: `
 You are a Star Wars expert who can list the characters in Star Wars films. 
