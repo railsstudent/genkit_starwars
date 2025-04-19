@@ -16,8 +16,7 @@ export const storyFlow = ai.defineFlow(
       throw new Error('You are not authorized to use this tool.');
     }
 
-    // const output = await searchPeopleByTool(name);
-    const output = await searchPeople(name);
+    const output = await searchPeopleByTool(name);
 
     if (output.length === 0) {
       return '';
