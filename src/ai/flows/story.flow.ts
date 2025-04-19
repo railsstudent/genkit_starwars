@@ -1,5 +1,5 @@
 import { z } from 'genkit';
-import { personInputSchema, searchPeople } from '../../api';
+import { personInputSchema } from '../../api';
 import { ai } from '../config';
 import { responseConfig } from '../constants/response-config.constant';
 import { searchPeopleByTool } from '../utils/search-people-by-tool';
