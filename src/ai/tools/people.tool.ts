@@ -1,3 +1,4 @@
+import { logger } from 'genkit/logging';
 import { peopleSchema, personInputSchema, searchPeople } from '../../api';
 import { ai } from '../config';
 
@@ -9,7 +10,7 @@ export const peopleTool = ai.defineTool(
     outputSchema: peopleSchema,
   },
   async ({ name }) => {
-    console.log(`peopleTool called with name: ${name}`);
+    logger.info(`peopleTool called with name: ${name}`);
     return searchPeople(name);
   },
 );

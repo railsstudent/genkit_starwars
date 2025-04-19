@@ -1,3 +1,4 @@
+import { logger } from 'genkit/logging';
 import { filmCharacterResultsSchema, filmInputSchema, searchCharactersInFilm } from '../../api';
 import { ai } from '../config';
 
@@ -12,7 +13,7 @@ export const filmCharactersTool = ai.defineTool(
     outputSchema: filmCharacterResultsSchema,
   },
   async ({ title }) => {
-    console.log(`filmCharactersTool called with ${title}`);
+    logger.info(`filmCharactersTool called with ${title}`);
     return searchCharactersInFilm(title);
   },
 );
