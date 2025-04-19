@@ -4,7 +4,7 @@ import { Person } from '../../api';
 import { geminiAI } from '../config';
 import { writeImages } from '../utils/write-images';
 
-export async function generatePoster(firstPerson: Person, numberOfImages: number, mockData = true) {
+export async function generatePoster(firstPerson: Person, numberOfImages: number, mockData = false) {
     const imagePrompt = `Generate a poster of ${firstPerson.name} from Star Wars who is a ${firstPerson.gender}. 
   The eye color is ${firstPerson.eye_color}, the hair color is ${firstPerson.hair_color}, and the skin color is ${firstPerson.skin_color}.
   Include ${firstPerson.name} as the title of the poster and above the character.`;
