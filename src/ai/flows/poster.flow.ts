@@ -24,11 +24,11 @@ export const posterFlow = ai.defineFlow(
     }
 
     if (output.length === 1) {
-      return generatePoster(output[0], 1, true);
+      return generatePoster(output[0], 1);
     }
 
     // more than one selection. randomly select one
     const idx = Math.floor(Math.random() * output.length);
-    return generatePoster(output[idx], 1, true);
+    return generatePoster(output[idx], 1);
   },
 );
