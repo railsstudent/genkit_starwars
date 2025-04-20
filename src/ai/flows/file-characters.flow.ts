@@ -1,3 +1,4 @@
+import { UserFacingError } from 'genkit';
 import { filmCharacterResultsSchema, filmInputSchema } from '../../api';
 import { ai } from '../config';
 import { responseConfig } from '../constants/response-config.constant';
@@ -11,8 +12,12 @@ export const filmCharactersFlow = ai.defineFlow(
     streamSchema: filmCharacterResultsSchema,
   },
   async (input, { sendChunk, context }) => {
+    if (!context?.auth) {
+      throw new UserFacingError('UNAUTHENTICATED', 'Unauthorized.');
+    }
+
     if (context?.auth?.name !== 'Rebellion') {
-      throw new Error('You are not authorized to use this tool.');
+      throw new UserFacingError('PERMISSION_DENIED', 'Permission denied.');
     }
 
     const response = await ai.generateStream({

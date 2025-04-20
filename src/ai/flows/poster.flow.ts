@@ -1,4 +1,4 @@
-import { z } from 'genkit';
+import { UserFacingError, z } from 'genkit';
 import { personInputSchema } from '../../api';
 import { ai } from '../config';
 import { generatePoster, searchPeopleByTool } from '../utils';
@@ -13,8 +13,12 @@ export const posterFlow = ai.defineFlow(
     }),
   },
   async ({ name }, { context }) => {
+    if (!context?.auth) {
+      throw new UserFacingError('UNAUTHENTICATED', 'Unauthorized.');
+    }
+
     if (context?.auth?.name !== 'Rebellion') {
-      throw new Error('You are not authorized to use this tool.');
+      throw new UserFacingError('PERMISSION_DENIED', 'Permission denied.');
     }
 
     const output = await searchPeopleByTool(name);
