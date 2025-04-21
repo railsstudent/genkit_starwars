@@ -1,6 +1,6 @@
 import { startFlowServer, withContextProvider } from '@genkit-ai/express';
 import { ContextProvider, RequestData } from 'genkit/context';
-import { filmCharactersFlow, posterFlow, storyFlow } from './ai';
+import { fictionFlow, filmCharactersFlow, posterFlow } from './ai';
 
 // CURL example with auth header
 // curl --location 'http://localhost:5432/posterFlow' \
@@ -21,7 +21,7 @@ const context: ContextProvider = (request: RequestData) => ({
 startFlowServer({
   flows: [
     withContextProvider(filmCharactersFlow, context),
-    withContextProvider(storyFlow, context),
+    withContextProvider(fictionFlow, context),
     withContextProvider(posterFlow, context),
   ],
   port: 5432,

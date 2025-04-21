@@ -4,9 +4,9 @@ import { ai } from '../config';
 import { responseConfig } from '../constants/response-config.constant';
 import { searchPeopleByTool } from '../utils/search-people-by-tool';
 
-export const storyFlow = ai.defineFlow(
+export const fictionFlow = ai.defineFlow(
   {
-    name: 'storyFlow',
+    name: 'fictionFlow',
     inputSchema: personInputSchema,
     outputSchema: z.string(),
     streamSchema: z.string(),
@@ -44,11 +44,11 @@ Please keep the story to maximum 500 characters.`,
       sendChunk((chunk as any).text);
     }
 
-    const { output: story } = await response.response;
-    if (story == null) {
+    const { output: fiction } = await response.response;
+    if (fiction == null) {
       throw new Error("Response doesn't satisfy schema.");
     }
 
-    return story;
+    return fiction;
   },
 );
