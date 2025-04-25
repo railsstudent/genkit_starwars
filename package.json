@@ -25,6 +25,9 @@
     "@genkit-ai/express": "1.6.2",
     "@genkit-ai/googleai": "1.6.2",
     "@google/genai": "0.8.0",
+    "@types/body-parser": "1.19.5",
+    "@types/cors": "2.8.17",
+    "@types/express": "5.0.1",
     "dotenv": "16.5.0",
     "genkit": "1.6.2"
   },
