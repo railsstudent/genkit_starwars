@@ -17,7 +17,7 @@ startFlowServer({
     withContextProvider(fictionFlow, context),
     withContextProvider(posterFlow, context),
   ],
-  port: parseInt(process.env.PORT || '5432'),
+  port: parseInt(process.env.PORT || '3333'),
   cors: {
     origin: '*',
   },
