@@ -4,7 +4,6 @@
 
 ```
 GOOGLE_GENAI_API_KEY=<api key from gemini ai studio>
-MOCK_IMAGE=false
 PORT=3333
 ```
 
@@ -33,6 +32,6 @@ x-name: Rebellion
 - Create a secret key in the Security Manager.  Use the name, secret.
 - Grant permission (Secret Manager Secret Accessor role) to the secret key.  Grant to the computer service account 
 - Execute the gcloud command for deployment
-   - Command:  gcloud run deploy --update-secrets=GOOGLE_GENAI_API_KEY=secret:latest --set-env-vars MOCK_IMAGE=false --port 3333
+   - Command:  gcloud run deploy --update-secrets=GOOGLE_GENAI_API_KEY=secret:latest --port 3333
    - region: us-west1
 ```

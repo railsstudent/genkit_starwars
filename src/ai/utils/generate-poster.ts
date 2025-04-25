@@ -8,13 +8,6 @@ export async function generatePoster(firstPerson: Person, numberOfImages: number
   The eye color is ${firstPerson.eye_color}, the hair color is ${firstPerson.hair_color}, and the skin color is ${firstPerson.skin_color}.
   Include ${firstPerson.name} as the title of the poster and above the character.`;
 
-  if (process.env.MOCK_IMAGE === 'true') {
-    return {
-      name: firstPerson.name,
-      filenames: [],
-    };
-  }
-
   const response = await geminiAI.models.generateImages({
     model: 'imagen-3.0-generate-002',
     prompt: imagePrompt,
