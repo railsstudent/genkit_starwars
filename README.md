@@ -27,6 +27,7 @@ x-name: Rebellion
 
 ## Deploy to Cloud Run 
 
+```
 - Choose the correct project
 - Enable Security Manager API
 - Create a secret key in the Security Manager.  Use the name, secret.
@@ -34,3 +35,4 @@ x-name: Rebellion
 - Execute the gcloud command for deployment
    - Command:  gcloud run deploy --update-secrets=GOOGLE_GENAI_API_KEY=secret:latest --set-env-vars MOCK_IMAGE=false --port 3333
    - region: us-west1
+```
