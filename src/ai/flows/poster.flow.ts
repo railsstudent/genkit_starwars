@@ -14,7 +14,7 @@ export const posterFlow = ai.defineFlow(
   },
   async ({ name }, { context }) => {
     if (!context?.auth) {
-      throw new UserFacingError('UNAUTHENTICATED', 'Unauthorized.');
+      throw new UserFacingError('UNAUTHENTICATED', 'Unathenticated.');
     }
 
     if (context?.auth?.name !== 'Rebellion') {
@@ -24,7 +24,7 @@ export const posterFlow = ai.defineFlow(
     const output = await searchPeopleByTool(name);
 
     if (output.length === 0) {
-      throw new Error('No people found');
+      throw new UserFacingError('NOT_FOUND', 'No people found.');
     }
 
     if (output.length === 1) {

@@ -13,7 +13,7 @@ export const filmCharactersFlow = ai.defineFlow(
   },
   async (input, { sendChunk, context }) => {
     if (!context?.auth) {
-      throw new UserFacingError('UNAUTHENTICATED', 'Unauthorized.');
+      throw new UserFacingError('UNAUTHENTICATED', 'Unathenticated.');
     }
 
     if (context?.auth?.name !== 'Rebellion') {

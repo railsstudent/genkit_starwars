@@ -13,7 +13,7 @@ export const fictionFlow = ai.defineFlow(
   },
   async ({ name }, { sendChunk, context }) => {
     if (!context?.auth) {
-      throw new UserFacingError('UNAUTHENTICATED', 'Unauthorized.');
+      throw new UserFacingError('UNAUTHENTICATED', 'Unathenticated.');
     }
 
     if (context?.auth?.name !== 'Rebellion') {
@@ -31,7 +31,7 @@ export const fictionFlow = ai.defineFlow(
     const response = await ai.generateStream({
       system: `
 You are a professional Star Wars writer who can write Star Wars fictions based on the characters. 
-Please keep the story to maximum 500 characters.`,
+Please keep the story to maximum 1000 characters.`,
       prompt: `Write a Star Wars fiction about ${names}.`,
       output: {
         format: 'text',
